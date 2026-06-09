@@ -16,17 +16,29 @@ for i in range(2):
     print(f"\nEnter details for User {i + 1}")
 
     name = input("Enter name: ")
-    age = int(input("Enter age: "))
-    height = float(input("Enter height in cm: "))
 
-    # Dictionary for each user
+    # Get age
+    while True:
+        try:
+            age = int(input("Enter age: "))
+            break
+        except ValueError:
+            print("Please enter a valid age.")
+
+    # Get height
+    while True:
+        try:
+            height = float(input("Enter height in cm: "))
+            break
+        except ValueError:
+            print("Please enter a valid height.")
+
     user = {
         "name": name,
         "age": age,
         "height": height
     }
 
-    # Add dictionary to list
     users.append(user)
 
 # Display user information
@@ -35,7 +47,7 @@ print("\nUser Information:")
 for user in users:
     print(f"{user['name']} is {user['age']} years old and has a height of {user['height']} cm.")
 
-# Calculate and display total combined height
+# Calculate total height
 total_height = calculate_total_height(users)
 
-print(f"\nThe total combined height of both users is {total_height} cm.")
+print(f"\nThe total combined height is {total_height} cm.")
